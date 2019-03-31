@@ -5,7 +5,9 @@ Projeto referente ao desafio proposto baseado na comprovação de minhas habilid
 ## Instalando
 
 Nesse projeto, não é necessário baixar nenhuma quaisquer dependencias, apenas abrir a página html:
+
 - login.html
+
 O qual já possui total ligação com os assets e com o background extraído do .psd disponibilizado.
 
 ## Executando os testes (Validação)
