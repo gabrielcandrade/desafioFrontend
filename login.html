@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login - MaxDoctor</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="icon" href="assets/icone.ico" type="image/x-icon" />
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mask.min.js"></script>
+	</head>
+	<body>
+		<div class="logo">
+			<img src="assets/logo.png"/>
+		</div>
+		<div class="lema">
+			<h4>A plataforma de compra direta do seu anestésico tópico</h4>
+		</div>
+		<form method="post" id="form" class="form" >
+		
+			<div class="group">
+		    	<input  type="text" id="crm" name="crm"/>
+		    	<label for="name">CRM</label>
+		    	<div id="messageCrm" class="message">
+		    		CRM deve conter no mínimo 7 caracteres.
+		    	</div>
+			</div>
+
+			<div class="group">
+		    	<select id="select-arrow" name="uf">
+		    		<option value="" disabled="true" selected>Selecione: </option>
+					<option value="AC">Acre</option>
+					<option value="AL">Alagoas</option>
+					<option value="AP">Amapá</option>
+					<option value="AM">Amazonas</option>
+					<option value="BA">Bahia</option>
+					<option value="CE">Ceará</option>
+					<option value="DF">Distrito Federal</option>
+					<option value="ES">Espírito Santo</option>
+					<option value="GO">Goiás</option>
+					<option value="MA">Maranhão</option>
+					<option value="MT">Mato Grosso</option>
+					<option value="MS">Mato Grosso do Sul</option>
+					<option value="MG">Minas Gerais</option>
+					<option value="PA">Pará</option>
+					<option value="PB">Paraíba</option>
+					<option value="PR">Paraná</option>
+					<option value="PE">Pernambuco</option>
+					<option value="PI">Piauí</option>
+					<option value="RJ">Rio de Janeiro</option>
+					<option value="RN">Rio Grande do Norte</option>
+					<option value="RS">Rio Grande do Sul</option>
+					<option value="RO">Rondônia</option>
+					<option value="RR">Roraima</option>
+					<option value="SC">Santa Catarina</option>
+					<option value="SP">São Paulo</option>
+					<option value="SE">Sergipe</option>
+					<option value="TO">Tocantins</option>
+		    	</select>
+		    	<label for="name">UF</label>
+
+		    	<div id="messageUf" class="message">
+		    		Campo obrigatório. Selecione um UF
+		    	</div>
+			</div>
+
+			<div class="button">
+				<button id="buttonSubmit" type="submit">Continue</button>
+			</div>
+
+			<div id="messageSuccess" class="messageSuccess">
+		    	Usuário autenticado. Você está sendo redirecionado...
+		    </div>
+
+			<div class="lema" style="font-size: 1em; line-height: 1.6;">
+				<h4>Canal de compra exclusivo para classe médica</h4>
+			</div>
+
+		</form>
+
+		<div class="group">
+
+			<div class="groupinho">
+				<div>
+					<img src="assets/cart.png">
+					<h6>Facilidade de compra </h6>
+				</div>
+				<div>
+					<img src="assets/blocos.png">
+					<h6>Quantidade não limitada</h6>
+				</div>
+			</div>
+
+			<div class="groupinho">
+				<div>
+					<img src="assets/car.png">
+					<h6>Frete Gratis</h6>
+				</div>
+				<div>
+					<img src="assets/moto.png">
+					<h6>Agilidade</h6>
+				</div>
+				<div>
+					<img src="assets/sofa.png">
+					<h6>Comodidade</h6>
+				</div>
+			</div>
+			
+		</div>
+
+	<!-- JS Mask Plugin -->
+	<script>
+		 $(document).ready(function(){
+			  $('#crm').mask('000.000-0');
+		 });
+	</script>
+
+	<script language="javascript" type="text/javascript">
+		window.addEventListener("DOMContentLoaded", function(){
+
+			// Declaração de variaveis
+			var form = document.getElementById("form");
+			var divMessageCrm = document.getElementById("messageCrm");
+			var divMessageUf = document.getElementById("messageUf");
+			var divMessageSuccess = document.getElementById("messageSuccess");
+
+			form.addEventListener("submit", validar);
+
+			function validar(event) {
+				event.preventDefault();
+
+				// Pega o valor do form e coloca na variavel compatível com o nome da tag.
+				const inputCrm = form.crm;
+				const selectUF = form.uf;
+
+				// Por padrão, assim que sair um caractere a mais, ele desaparece.
+				inputCrm.addEventListener("input", function() {
+					divMessageCrm.classList.remove("show");
+					divMessageSuccess.classList.remove("show")
+				});
+				selectUF.addEventListener("change", function() {
+					divMessageUf.classList.remove("show");
+					divMessageSuccess.classList.remove("show");
+				});
+
+
+				// Se tiver menos de 9 caracteres e der o submit, da show na classe da div.
+				if (inputCrm.value.length < 9) {
+					divMessageCrm.classList.add("show");
+				} else {
+					divMessageCrm.classList.remove("show");
+				}
+
+				// Se o UF não tiver value, ele vai pedir para selecionar um UF.
+				if (selectUF.value === "") {
+					divMessageUf.classList.add("show");
+				} else {
+					divMessageUf.classList.remove("show");
+				}
+
+				// Passando pelas duas validações e aprovado, redireciona para o site da HUIA.
+				if (selectUF.value !== "" && inputCrm.value.length === 9) {
+					divMessageSuccess.classList.add("show");
+					setTimeout(function(){
+						window.location.href = "http://www.huia.com.br"	}, 
+						3000); // 3 segundos...
+				}
+			}
+		});
+	</script>
+	</body>
+</html>
