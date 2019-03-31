@@ -6,7 +6,7 @@ Projeto referente ao desafio proposto baseado na comprovação de minhas habilid
 
 Nesse projeto, não é necessário baixar nenhuma quaisquer dependencias, apenas abrir a página html:
 
-**OBS:** Para avaliação em tamanho mobile, utilizei das dimensões **(640 x 1136)** por questão das imagens disponibilizadas no .psd estarem para esta proporção.
+**OBS:** Para avaliação em tamanho mobile, utilizei das dimensões **(640 x 1136)** devido este, ser o tamanho das imagens disponibilizadas no .PSD
 
 - login.html
 
