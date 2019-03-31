@@ -6,6 +6,8 @@ Projeto referente ao desafio proposto baseado na comprovação de minhas habilid
 
 Nesse projeto, não é necessário baixar nenhuma quaisquer dependencias, apenas abrir a página html:
 
+*OBS:* Para avaliação em tamanho mobile, utilizei das dimensões *(640 x 1136)* por questão das imagens disponibilizadas no .psd estarem para esta proporção.
+
 - login.html
 
 O qual já possui total ligação com os assets e com o background extraído do .psd disponibilizado.
